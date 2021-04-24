@@ -1,7 +1,9 @@
 package br.com.mpicosque.dslearnbds.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -12,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -25,6 +28,9 @@ public class User implements Serializable {
 	private String name;
 	private String email;
 	private String password;
+	
+	@OneToMany(mappedBy = "user")
+	private List<Notification> notifications = new ArrayList<>();
 	
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "tb_user_role",
@@ -82,6 +88,10 @@ public class User implements Serializable {
 
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
+	}
+
+	public List<Notification> getNotifications() {
+		return notifications;
 	}
 
 	@Override

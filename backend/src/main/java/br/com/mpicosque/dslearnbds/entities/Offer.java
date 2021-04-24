@@ -12,33 +12,31 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tb_notification")
-public class Notification implements Serializable {
+@Table(name = "tb_offer")
+public class Offer implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String text;
-	private Instant moment;
-	private Boolean read;
-	private String route;
+	private String edition;
+	private Instant startMoment;
+	private Instant endMoment;
 	
 	@ManyToOne
-	@JoinColumn(name = "user_id")
-	private User user;
+	@JoinColumn(name = "couse_id")
+	private Course course;
 
-	public Notification() {
+	public Offer() {
 	}
-
-	public Notification(Long id, String text, Instant moment, Boolean read, String route, User user) {
+	
+	public Offer(Long id, String edition, Instant startMoment, Instant endMoment, Course course) {
 		super();
 		this.id = id;
-		this.text = text;
-		this.moment = moment;
-		this.read = read;
-		this.route = route;
-		this.user = user;
+		this.edition = edition;
+		this.startMoment = startMoment;
+		this.endMoment = endMoment;
+		this.course = course;
 	}
 
 	public Long getId() {
@@ -49,36 +47,36 @@ public class Notification implements Serializable {
 		this.id = id;
 	}
 
-	public String getText() {
-		return text;
+	public String getEdition() {
+		return edition;
 	}
 
-	public void setText(String text) {
-		this.text = text;
+	public void setEdition(String edition) {
+		this.edition = edition;
 	}
 
-	public Instant getMoment() {
-		return moment;
+	public Instant getStartMoment() {
+		return startMoment;
 	}
 
-	public void setMoment(Instant moment) {
-		this.moment = moment;
+	public void setStartMoment(Instant startMoment) {
+		this.startMoment = startMoment;
 	}
 
-	public Boolean getRead() {
-		return read;
+	public Instant getEndMoment() {
+		return endMoment;
 	}
 
-	public void setRead(Boolean read) {
-		this.read = read;
+	public void setEndMoment(Instant endMoment) {
+		this.endMoment = endMoment;
 	}
 
-	public String getRoute() {
-		return route;
+	public Course getCourse() {
+		return course;
 	}
 
-	public void setRoute(String route) {
-		this.route = route;
+	public void setCourse(Course course) {
+		this.course = course;
 	}
 
 	@Override
@@ -97,7 +95,7 @@ public class Notification implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Notification other = (Notification) obj;
+		Offer other = (Offer) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
