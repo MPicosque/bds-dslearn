@@ -6,7 +6,7 @@ INSERT INTO tb_role (authority) VALUES ('ROLE_STUDENT');
 INSERT INTO tb_role (authority) VALUES ('ROLE_INSTRUCTOR');
 INSERT INTO tb_role (authority) VALUES ('ROLE_ADMIN');
 
-INSERT INTO tb_notification (text, moment, read, route, user_id) VALUES ('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', TIMESTAMP WITH TIME ZONE '2020-07-13T20:50:07.12345Z', 0, 'Trilha HTML', 1);
+INSERT INTO tb_notification (text, moment, read, route, user_id) VALUES ('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', TIMESTAMP WITH TIME ZONE '2020-07-13T20:50:07.12345Z', false, 'Trilha HTML', 1);
 
 INSERT INTO tb_user_role (user_id, role_id) VALUES (1, 1);
 INSERT INTO tb_user_role (user_id, role_id) VALUES (2, 1);
@@ -27,3 +27,8 @@ INSERT INTO tb_resource (title, description, position, img_uri, type, external_l
 INSERT INTO tb_section (title, description, position, img_uri, resource_id, prerequisite_id) VALUES ('Capítulo 1', 'Neste capítulo vamos começar', 1, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh1ehu8iKuHD9wqWI9yNnEltx8xdCGmkZjuQ&usqp=CAU', 1, null);
 INSERT INTO tb_section (title, description, position, img_uri, resource_id, prerequisite_id) VALUES ('Capítulo 2', 'Neste capítulo vamos continuar', 1, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh1ehu8iKuHD9wqWI9yNnEltx8xdCGmkZjuQ&usqp=CAU', 1, 1);
 INSERT INTO tb_section (title, description, position, img_uri, resource_id, prerequisite_id) VALUES ('Capítulo 3', 'Neste capítulo vamos finalizar', 1, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh1ehu8iKuHD9wqWI9yNnEltx8xdCGmkZjuQ&usqp=CAU', 1, 2);
+
+INSERT INTO tb_enrollment (user_id, offer_id, enroll_moment, refund_moment, available, only_update) VALUES (1, 1, TIMESTAMP WITH TIME ZONE '2020-11-20T13:00:00Z', null, true, false);
+INSERT INTO tb_enrollment (user_id, offer_id, enroll_moment, refund_moment, available, only_update) VALUES (2, 1, TIMESTAMP WITH TIME ZONE '2020-11-20T15:00:00Z', null, true, false);
+
+
